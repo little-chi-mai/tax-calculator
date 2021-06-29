@@ -26,7 +26,6 @@ export default function CalculatorForm() {
   };
 
   function _onChangeCountry(value) {
-    console.log("COUNTRY CHANGED", value);
     setCountry(value);
   }
 
@@ -47,7 +46,6 @@ export default function CalculatorForm() {
   }
 
   useEffect(() => {
-    console.log(TaxBrackets[country][year]);
     const taxObj = TaxFormula.calculator(TaxBrackets[country][year], income)
     setTaxDetails(taxObj);
     let total = 0;
@@ -55,7 +53,7 @@ export default function CalculatorForm() {
       total += bracket.tax;
     })
     setTotalTax(total)
-  })
+  }, [country, year, income])
 
   if (isFormOn) {
     return (
@@ -101,7 +99,7 @@ export default function CalculatorForm() {
               income={income}
               disabled={true}
             />
-            <a onClick={redirect}>Go back to previous screen</a>
+            <button onClick={redirect}>Go back to previous screen</button>
           </div>
           <div className="background">
             <div className="planetoid"></div>

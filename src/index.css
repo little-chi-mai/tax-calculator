@@ -205,11 +205,13 @@ button {
   border: none;
 }
 
-.calculator > a {
+.calculator > button {
   color: #8477c9;
   text-decoration: underline;
   cursor: pointer;
   font-size: 14px;
+  background-color: white;
+  border: none;
 }
 
 .result-total {
