@@ -250,7 +250,7 @@ button {
     width: 220px;
     height: 203.64px;
     left: -28.08px;
-    top: 311.42px;
+    bottom: -67.42px;
     border-radius: 10rem;
     clip-path: inset(0px 0px 67px 28px);
   }
@@ -259,7 +259,7 @@ button {
     width: 36.08px;
     height: 35.17px;
     left: 158.38px;
-    top: 352.45px;
+    bottom: 44.45px;
     border-radius: 5rem;
   }
 
