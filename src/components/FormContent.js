@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function FormContent(props) {
 
   function _onChangeCountry(e) {

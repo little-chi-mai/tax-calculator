@@ -68,7 +68,7 @@ export default function CalculatorForm() {
         <div className="calculator">
           <form onSubmit={_onSubmit}>
             <h2>Calculate your tax</h2>
-            <InfoBox />
+            <InfoBox text="Fields marked with * are mandatory"/>
 
             <FormContent 
               _onChangeCountry={_onChangeCountry}
@@ -80,7 +80,7 @@ export default function CalculatorForm() {
               disabled={false}
             />
         
-            <SubmitButton />
+            <SubmitButton text="Calculate" />
           </form>
         </div>
 
