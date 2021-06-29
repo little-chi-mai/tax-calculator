@@ -165,7 +165,7 @@ button {
   color: rgb(134, 134, 134);
 }
 
-.input-wrapper > p:after {
+.input-wrapper > .icon-holder:after {
   position: absolute;
   content: "$";
   left: 2%;
