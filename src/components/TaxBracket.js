@@ -13,12 +13,12 @@ export default function TaxBracket(props) {
   const {format} = currencyFormatter;
 
   return (
-    <div>
-      <div>
-        <p>Tax Bracket</p>
+    <div className="tax-breakdowns">
+      <div className="tax-breakdowns__bracket">
+        <h4>Tax Bracket</h4>
         <p>{`$${props.from}${props.to !== Infinity ? ` - ${props.to}` : '+'}`}</p>
       </div>
-      <p>{format(props.tax)}</p>
+      <p className="tax-breakdowns__number">{format(props.tax)}</p>
     </div>
   )
 }

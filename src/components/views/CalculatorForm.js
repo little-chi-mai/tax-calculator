@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import InfoBox from '../InfoBox';
 import FormContent from '../FormContent';
 import TaxBracket from '../TaxBracket';
+import SubmitButton from '../SubmitButton'
 
 import '../../index.css';
 
@@ -45,16 +46,14 @@ const taxCalculator = function(taxBrackets, income) {
   taxBrackets.map((bracket, index) => {
 
     if (income >= bracket.from) {
-      console.log(bracket.from, bracket.to);
-
       // choose the value to calculate
       const valueToCalculate = income >= bracket.to ? bracket.to : income;
       taxBrackets[index].tax = (valueToCalculate - bracket.from + 1) * bracket.taxRate;
       totalTax += taxBrackets[index].tax;
-      console.log(taxBrackets[index].tax);
+    } else {
+      taxBrackets[index].tax = 0;
     }
   })
-  console.log(taxBrackets);
   return taxBrackets;
 };
 
@@ -78,14 +77,6 @@ export default function CalculatorForm() {
 
   function _onSubmit(e) {
     e.preventDefault();
-    const taxObj = taxCalculator(taxBrackets2021, income)
-    setTaxDetails(taxObj);
-    let total = 0;
-    taxObj.map(bracket => {
-      console.log(bracket.tax);
-      total += bracket.tax;
-    })
-    setTotalTax(total)
   }
 
   function breakdown () {
@@ -94,11 +85,23 @@ export default function CalculatorForm() {
     })
   };
 
+  useEffect(() => {
+    const taxObj = taxCalculator(taxBrackets2021, income)
+    setTaxDetails(taxObj);
+    let total = 0;
+    taxObj.map(bracket => {
+      total += bracket.tax;
+    })
+    setTotalTax(total)
+  })
+
   return (
     <div>
       <div className="background">
         <h1>Tax-o-tron</h1>
         <p>The free and simple online tax calculator.</p>
+        <div class="planetoid"></div>
+        <div class="moon"></div>
       </div>
       <div className="calculator">
         <form onSubmit={_onSubmit} action="/result">
@@ -114,13 +117,13 @@ export default function CalculatorForm() {
             income={income}
             disabled={false}
           />
-          
-          <button>Calculate</button>
+      
+          <SubmitButton />
         </form>
       </div>
 
-      <div>
-        <h2>Calculate your tax</h2> 
+      <div className="calculator">
+        <h2>Your tax results</h2> 
         <FormContent 
           _onChangeCountry={_onChangeCountry}
           _onChangeYear={_onChangeYear}
@@ -132,9 +135,11 @@ export default function CalculatorForm() {
         />
       </div>
       <div className="background">
-        <p>Your estimated taxable income is:</p>
-        <p>${totalTax}</p>
-        <p>Breakdown</p>
+        <div class="planetoid"></div>
+        <div class="moon"></div>
+        <h3>Your estimated taxable income is:</h3>
+        <p className="result-total">${totalTax}</p>
+        <h3>Breakdown</h3>
 
         {breakdown()}
       
