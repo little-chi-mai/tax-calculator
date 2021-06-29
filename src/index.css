@@ -33,6 +33,7 @@ h2 {
 h3 {
   font-size: 14px;
   font-weight: 300;
+  margin: 0.5rem 0;
 }
 
 h4,
@@ -57,6 +58,14 @@ label {
 
 .background > * {
   color: white;
+}
+
+/* .background > p {
+  margin: 0.5rem 0;
+} */
+
+.background-padding {
+  padding: 0 2.5rem 4.5rem 2.5rem;
 }
 
 .planetoid {
@@ -95,6 +104,7 @@ label {
   display: flex;
   align-items: center;
   padding-left: 1rem;
+  margin: 0.7rem 0;
 }
 
 .info-box > p {
@@ -125,11 +135,23 @@ label {
   width: 100%;
   padding-left: 0.5rem;
   font-size: 14px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-top: 0.5rem;
   background-color: white;
   border: 1px rgb(161, 161, 161) solid;
   border-radius: 5px;
 }
+
+/* .form-input:disabled {
+  color: #848484 !important;
+  background-color: #e4e4e4;
+  border: none;
+} */
+/* .input-wrapper,
+.input-wrapper > input {
+  background-color: #e4e4e4 !important;
+  border: none;
+} */
 
 .input-wrapper {
   display: flex;
@@ -178,6 +200,13 @@ label {
   border: none;
 }
 
+.calculator > a {
+  color: #8477c9;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
 .result-total {
   height: 70px;
   background-color: white;
@@ -209,4 +238,64 @@ label {
 .tax-breakdowns__number {
   color: #8477c9;
   font-size: 18px;
+}
+
+@media screen and (min-width: 770px) {
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 3rem;
+  }
+
+  .background {
+    height: 448px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    /* padding-bottom: 7rem; */
+    /* flex: 1 0 40%; */
+  }
+
+  .planetoid {
+    width: 220px;
+    height: 203.64px;
+    left: -28.08px;
+    top: 311.42px;
+    border-radius: 10rem;
+
+    clip-path: inset(0px 0px 67px 28px);
+  }
+
+  .moon {
+    width: 36.08px;
+    height: 35.17px;
+    left: 158.38px;
+    top: 352.45px;
+    border-radius: 5rem;
+  }
+
+  .calculator {
+    width: 45%;
+  }
+
+  .result {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .result__form-disabled {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .form {
+    /* max-width: 950px;
+width: 100%; */
+    justify-content: space-evenly;
+  }
 }

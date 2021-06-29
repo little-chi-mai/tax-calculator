@@ -6,6 +6,7 @@ import TaxBracket from '../TaxBracket';
 import SubmitButton from '../SubmitButton'
 
 import '../../index.css';
+import { Redirect } from 'react-router';
 
 const taxBrackets2021 = [
   {
@@ -63,6 +64,7 @@ export default function CalculatorForm() {
   let [income, setIncome] = useState('70000');
   let [taxDetails, setTaxDetails] = useState(taxBrackets2021);
   let [totalTax, setTotalTax] = useState(0);
+  let [isFormOn, setIsFromOn] = useState(true)
 
   function _onChangeCountry(value) {
     setCountry(value);
@@ -77,6 +79,11 @@ export default function CalculatorForm() {
 
   function _onSubmit(e) {
     e.preventDefault();
+    setIsFromOn(false);
+  }
+
+  function redirect() {
+    setIsFromOn(true);
   }
 
   function breakdown () {
@@ -95,55 +102,64 @@ export default function CalculatorForm() {
     setTotalTax(total)
   })
 
-  return (
-    <div>
-      <div className="background">
-        <h1>Tax-o-tron</h1>
-        <p>The free and simple online tax calculator.</p>
-        <div class="planetoid"></div>
-        <div class="moon"></div>
-      </div>
-      <div className="calculator">
-        <form onSubmit={_onSubmit} action="/result">
-          <h2>Calculate your tax</h2>
-          <InfoBox />
+  if (isFormOn) {
+    return (
+      <div className="form">
+        <div className="background background-padding">
+          <h1>Tax-o-tron</h1>
+          <p>The free and simple online tax calculator.</p>
+          <div class="planetoid"></div>
+          <div class="moon"></div>
+        </div>
+        <div className="calculator">
+          <form onSubmit={_onSubmit} action="/result">
+            <h2>Calculate your tax</h2>
+            <InfoBox />
 
-          <FormContent 
-            _onChangeCountry={_onChangeCountry}
-            _onChangeYear={_onChangeYear}
-            _onChangeIncome={_onChangeIncome}
-            country={country}
-            year={year}
-            income={income}
-            disabled={false}
-          />
-      
-          <SubmitButton />
-        </form>
-      </div>
+            <FormContent 
+              _onChangeCountry={_onChangeCountry}
+              _onChangeYear={_onChangeYear}
+              _onChangeIncome={_onChangeIncome}
+              country={country}
+              year={year}
+              income={income}
+              disabled={false}
+            />
+        
+            <SubmitButton />
+          </form>
+        </div>
 
-      <div className="calculator">
-        <h2>Your tax results</h2> 
-        <FormContent 
-          _onChangeCountry={_onChangeCountry}
-          _onChangeYear={_onChangeYear}
-          _onChangeIncome={_onChangeIncome}
-          country={country}
-          year={year}
-          income={income}
-          disabled={true}
-        />
       </div>
-      <div className="background">
-        <div class="planetoid"></div>
-        <div class="moon"></div>
-        <h3>Your estimated taxable income is:</h3>
-        <p className="result-total">${totalTax}</p>
-        <h3>Breakdown</h3>
-
-        {breakdown()}
-      
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return (
+        <div className="result">
+          <div className="calculator">
+            <h2>Your tax results</h2> 
+            <FormContent 
+              _onChangeCountry={_onChangeCountry}
+              _onChangeYear={_onChangeYear}
+              _onChangeIncome={_onChangeIncome}
+              country={country}
+              year={year}
+              income={income}
+              disabled={true}
+            />
+            <a onClick={redirect}>Go back to previous screen</a>
+          </div>
+          <div className="background">
+            <div class="planetoid"></div>
+            <div class="moon"></div>
+            <h3>Your estimated taxable income is:</h3>
+            <p className="result-total">${totalTax}</p>
+            <h3>Breakdown</h3>
+  
+            {breakdown()}
+          
+          </div>
+        </div>
+    )
+  }
+  
 }
