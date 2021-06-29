@@ -1,3 +1,5 @@
+// tax documentations with different countries and different financial year
+// "fy21": equal to 2020 - 2021 bracket
 const TaxBrackets = {
   au: {
     fy21: [

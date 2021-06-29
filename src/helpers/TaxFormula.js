@@ -1,4 +1,3 @@
-
 const TaxFormula = {
   calculator: function(taxBrackets, income) {
     taxBrackets.forEach((bracket, index) => {

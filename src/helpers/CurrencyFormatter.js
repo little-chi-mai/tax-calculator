@@ -1,3 +1,4 @@
+// function to format currency
 function CurrencyFormatter (number, fractionDigits=0) {
   const CurrencyFormatter = new Intl.NumberFormat('en-AU', {
     style: 'currency',

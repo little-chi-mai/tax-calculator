@@ -10,7 +10,6 @@ import currencyFormatter from '../../helpers/CurrencyFormatter';
 
 import '../../index.css';
 
-
 export default function CalculatorForm() {
   // set default value of 'au' and 'fy21'
   let [country, setCountry] = useState('au');
@@ -18,6 +17,7 @@ export default function CalculatorForm() {
   let [income, setIncome] = useState('');
   let [taxDetails, setTaxDetails] = useState(TaxFormula['fy21']);
   let [totalTax, setTotalTax] = useState(0);
+  // state of showing Form screen
   let [isFormOn, setIsFromOn] = useState(true);
 
   function breakdown () {
@@ -46,14 +46,19 @@ export default function CalculatorForm() {
     setIsFromOn(true);
   }
 
-  useEffect(() => {
-    const taxObj = TaxFormula.calculator(TaxBrackets[country][year], income)
-    setTaxDetails(taxObj);
+  function countTotalTax(taxObj) {
     let total = 0;
     taxObj.forEach(bracket => {
       total += bracket.tax;
     })
-    setTotalTax(total)
+    return total; 
+  }
+
+  useEffect(() => {
+    // get Tax Object by country, year and income
+    const taxObj = TaxFormula.calculator(TaxBrackets[country][year], income)
+    setTaxDetails(taxObj);
+    setTotalTax(countTotalTax(taxObj));
   }, [country, year, income])
 
   if (isFormOn) {
