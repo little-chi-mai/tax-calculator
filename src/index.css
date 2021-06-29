@@ -178,7 +178,8 @@ button {
   position: absolute;
   content: ".00";
   right: 2rem;
-  top: 12px;
+  top: 11px;
+  font-size: 14px;
   font-weight: 400;
   color: rgb(134, 134, 134);
 }
@@ -187,7 +188,8 @@ button {
   position: absolute;
   content: "$";
   left: 2%;
-  top: 12px;
+  top: 11px;
+  font-size: 14px;
   font-weight: 400;
   color: rgb(134, 134, 134);
 }
@@ -294,16 +296,29 @@ button {
     align-items: center;
     padding-top: 2rem;
   }
-
-  .result__form-disabled {
-    width: 40%;
-  }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .form {
     /* max-width: 950px;
 width: 100%; */
     justify-content: space-evenly;
+  }
+  .calculator {
+    width: 35%;
+  }
+
+  .background {
+    width: 35%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .calculator {
+    width: 30%;
+  }
+
+  .background {
+    width: 30%;
   }
 }

@@ -12,10 +12,11 @@ import '../../index.css';
 
 
 export default function CalculatorForm() {
+  // set default value of 'au' and 'fy21'
   let [country, setCountry] = useState('au');
   let [year, setYear] = useState('fy21');
-  let [income, setIncome] = useState('70000');
-  let [taxDetails, setTaxDetails] = useState(TaxFormula.brackets2021);
+  let [income, setIncome] = useState('');
+  let [taxDetails, setTaxDetails] = useState(TaxFormula['fy21']);
   let [totalTax, setTotalTax] = useState(0);
   let [isFormOn, setIsFromOn] = useState(true);
 
