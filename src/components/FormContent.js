@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default function FormContent(props) {
 
   function _onChangeCountry(e) {
@@ -10,8 +11,7 @@ export default function FormContent(props) {
     props._onChangeYear(e.target.value);
   }
   function _onChangeIncome(e) {
-    console.log("INCOME CHANGING");
-    props._onChangeIncome(parseInt(e.target.value));
+    props._onChangeIncome(e.target.value);
   }
 
   return (
@@ -21,7 +21,6 @@ export default function FormContent(props) {
       </label>
       <select className="form-input" value={props.country} disabled={props.disabled} name="country" id="country" onChange={_onChangeCountry}>
         <option value="australia">Australia</option>
-        <option value="vietnam">Vietnam</option>
       </select>
 
       <label htmlFor="year">Select an income year *</label>
@@ -32,15 +31,15 @@ export default function FormContent(props) {
         id="year" 
         onChange={_onChangeYear}
       >
-        <option value="2020 - 2021">2020 - 2021</option>
-        <option value="2019 - 2020">2019 - 2020</option>
+        <option>2020 - 2021</option>
       </select>
 
       <label>
         Enter your total taxable income for the income year *
-        <div disabled={props.disabled}  class="input-wrapper form-input">
-          <p>$</p>
+        <div disabled={props.disabled}  className="input-wrapper">
+          <p></p>
           <input 
+            className="form-input"
             value={props.income} 
             disabled={props.disabled}  type="number" 
             placeholder="Amount" 
