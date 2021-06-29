@@ -5,14 +5,15 @@ import FormContent from '../FormContent';
 import TaxBracket from '../TaxBracket';
 import SubmitButton from '../SubmitButton'
 import TaxFormula from '../../helpers/TaxFormula';
+import TaxBrackets from '../../helpers/TaxBrackets';
 import currencyFormatter from '../../helpers/CurrencyFormatter';
 
 import '../../index.css';
 
 
 export default function CalculatorForm() {
-  let [country, setCountry] = useState('Australia');
-  let [year, setYear] = useState('2020 - 2021');
+  let [country, setCountry] = useState('au');
+  let [year, setYear] = useState('fy21');
   let [income, setIncome] = useState('70000');
   let [taxDetails, setTaxDetails] = useState(TaxFormula.brackets2021);
   let [totalTax, setTotalTax] = useState(0);
@@ -25,6 +26,7 @@ export default function CalculatorForm() {
   };
 
   function _onChangeCountry(value) {
+    console.log("COUNTRY CHANGED", value);
     setCountry(value);
   }
 
@@ -45,14 +47,15 @@ export default function CalculatorForm() {
   }
 
   useEffect(() => {
-    const taxObj = TaxFormula.calculator(TaxFormula.brackets2021, income)
+    console.log(TaxBrackets[country][year]);
+    const taxObj = TaxFormula.calculator(TaxBrackets[country][year], income)
     setTaxDetails(taxObj);
     let total = 0;
     taxObj.forEach(bracket => {
       total += bracket.tax;
     })
     setTotalTax(total)
-  }, [])
+  })
 
   if (isFormOn) {
     return (

@@ -20,7 +20,9 @@ export default function FormContent(props) {
         Select your country of residence *
       </label>
       <select className="form-input" value={props.country} disabled={props.disabled} name="country" id="country" onChange={_onChangeCountry}>
-        <option value="australia">Australia</option>
+        
+        <option value="au" selected="selected">Australia</option>
+        <option value="us">United States of America</option>
       </select>
 
       <label htmlFor="year">Select an income year *</label>
@@ -31,7 +33,8 @@ export default function FormContent(props) {
         id="year" 
         onChange={_onChangeYear}
       >
-        <option>2020 - 2021</option>
+        <option value="fy21" selected="selected">2020 - 2021</option>
+        <option value="fy20">2019 - 2020</option>
       </select>
 
       <label>
