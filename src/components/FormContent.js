@@ -9,7 +9,7 @@ export default function FormContent(props) {
     props._onChangeYear(e.target.value);
   }
   function _onChangeIncome(e) {
-    props._onChangeIncome(e.target.value);
+    props._onChangeIncome(parseInt(e.target.value));
   }
 
   return (
@@ -41,7 +41,7 @@ export default function FormContent(props) {
           <p className="icon-holder"></p>
           <input 
             className="form-input"
-            value={props.income} 
+            value={props.income === 0 ? '' : props.income} 
             disabled={props.disabled}  type="number" 
             placeholder="Amount" 
             onChange={_onChangeIncome} 

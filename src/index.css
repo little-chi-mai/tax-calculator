@@ -137,6 +137,7 @@ button {
   color: #848484 !important;
   background-color: #e4e4e4;
   border: none;
+  opacity: 0.7;
 }
 
 .input-wrapper {
@@ -279,21 +280,22 @@ button {
   .form {
     justify-content: space-evenly;
   }
-  .calculator {
+
+  .background {
     width: 35%;
   }
 
-  .background {
+  .calculator {
     width: 40%;
   }
 }
 
 @media screen and (min-width: 1500px) {
-  .calculator {
+  .background {
     width: 30%;
   }
 
-  .background {
+  .calculator {
     width: 35%;
   }
 }

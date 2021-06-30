@@ -115,42 +115,42 @@ const TaxBrackets = {
     fy20: [
       {
         from: 0,
-        to: 9875,
+        to: 9700,
         taxRate: 0.1,
         tax: 0
       },
       {
-        from: 9876,
-        to: 40125,
+        from: 9701,
+        to: 39475,
         taxRate: 0.12,
         tax: 0
       },
       {
-        from: 40126,
-        to: 85525,
+        from: 39476,
+        to: 84200,
         taxRate: 0.22,
         tax: 0
       },
       {
-        from: 85526,
-        to: 163300,
+        from: 84201,
+        to: 160725,
         taxRate: 0.24,
         tax: 0
       },
       {
-        from: 163301,
-        to: 207350,
+        from: 160726,
+        to: 204100,
         taxRate: 0.32,
         tax: 0
       },
       {
-        from: 207351,
-        to: 518400,
+        from: 204101,
+        to: 510300,
         taxRate: 0.35,
         tax: 0
       },
       {
-        from: 518401,
+        from: 510301,
         to: Infinity,
         taxRate: 0.37,
         tax: 0

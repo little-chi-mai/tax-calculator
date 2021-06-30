@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import InfoBox from '../InfoBox';
 import FormContent from '../FormContent';
-import TaxBracket from '../TaxBracket';
+import Detail from '../Detail';
 import SubmitButton from '../SubmitButton'
 import TaxFormula from '../../helpers/TaxFormula';
 import TaxBrackets from '../../helpers/TaxBrackets';
@@ -14,7 +14,7 @@ export default function CalculatorForm() {
   // set default value of 'au' and 'fy21'
   let [country, setCountry] = useState('au');
   let [year, setYear] = useState('fy21');
-  let [income, setIncome] = useState('');
+  let [income, setIncome] = useState(0);
   let [taxDetails, setTaxDetails] = useState(TaxFormula['fy21']);
   let [totalTax, setTotalTax] = useState(0);
   // state of showing Form screen
@@ -22,7 +22,7 @@ export default function CalculatorForm() {
 
   function breakdown () {
     return taxDetails.map((bracket, index) => 
-      <TaxBracket from={bracket.from} to={bracket.to} tax={bracket.tax} key={index}/>
+      <Detail from={bracket.from} to={bracket.to} tax={bracket.tax} key={index}/>
     )
   };
 
