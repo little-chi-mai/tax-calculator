@@ -26,16 +26,16 @@ export default function CalculatorForm() {
     )
   };
 
-  function _onChangeCountry(value) {
-    setCountry(value);
-  }
+  // function _onChangeCountry(value) {
+  //   setCountry(value);
+  // }
 
-  function _onChangeYear(value) {
-    setYear(value);
-  }
-  function _onChangeIncome(value) {
-    setIncome(value);
-  }
+  // function _onChangeYear(value) {
+  //   setYear(value);
+  // }
+  // function _onChangeIncome(value) {
+  //   setIncome(value);
+  // }
 
   function _onSubmit(e) {
     e.preventDefault();
@@ -76,9 +76,9 @@ export default function CalculatorForm() {
             <InfoBox text="Fields marked with * are mandatory"/>
 
             <FormContent 
-              _onChangeCountry={_onChangeCountry}
-              _onChangeYear={_onChangeYear}
-              _onChangeIncome={_onChangeIncome}
+              setCountry={setCountry}
+              setYear={setYear}
+              setIncome={setIncome}
               country={country}
               year={year}
               income={income}
@@ -97,9 +97,9 @@ export default function CalculatorForm() {
           <div className="calculator">
             <h2>Your tax results</h2> 
             <FormContent 
-              _onChangeCountry={_onChangeCountry}
-              _onChangeYear={_onChangeYear}
-              _onChangeIncome={_onChangeIncome}
+              setCountry={setCountry}
+              setYear={setYear}
+              setIncome={setIncome}
               country={country}
               year={year}
               income={income}

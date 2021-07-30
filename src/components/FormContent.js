@@ -2,14 +2,14 @@ import React from 'react';
 
 export default function FormContent(props) {
   function _onChangeCountry(e) {
-    props._onChangeCountry(e.target.value);
+    props.setCountry(e.target.value);
   }
 
   function _onChangeYear(e) {
-    props._onChangeYear(e.target.value);
+    props.setYear(e.target.value);
   }
   function _onChangeIncome(e) {
-    props._onChangeIncome(parseInt(e.target.value));
+    props.setIncome(parseInt(e.target.value));
   }
 
   return (
@@ -41,6 +41,9 @@ export default function FormContent(props) {
           <p className="icon-holder"></p>
           <input 
             className="form-input"
+            pattern="^\d{1,3}(,\d{3})*(\.\d+)?$"
+            data-type="currency"
+            min="1" step="1"
             value={props.income === 0 ? '' : props.income} 
             disabled={props.disabled}  type="number" 
             placeholder="Amount" 
