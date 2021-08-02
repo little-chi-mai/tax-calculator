@@ -27,6 +27,7 @@ export default function FormContent(props) {
           Australia
         </option>
         <option value="us">United States of America</option>
+        <option value="nz">New Zealand</option>
       </select>
 
       <label htmlFor="year">Select an income year *</label>

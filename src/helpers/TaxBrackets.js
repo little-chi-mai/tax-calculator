@@ -156,6 +156,66 @@ const TaxBrackets = {
         tax: 0
       }
     ]
+  },
+  nz: {
+    fy21: [
+      {
+        from: 0,
+        to: 14000,
+        taxRate: 0.105,
+        tax: 0
+      },
+      {
+        from: 14001,
+        to: 48000,
+        taxRate: 0.175,
+        tax: 0
+      },
+      {
+        from: 48001,
+        to: 70000,
+        taxRate: 0.30,
+        tax: 0
+      },
+      {
+        from: 70001,
+        to: 180000,
+        taxRate: 0.33,
+        tax: 0
+      },
+      {
+        from: 180001,
+        to: Infinity,
+        taxRate: 0.39,
+        tax: 0
+      }
+    ],
+    fy20: [
+      {
+        from: 0,
+        to: 14000,
+        taxRate: 0.105,
+        tax: 0
+      },
+      {
+        from: 14001,
+        to: 48000,
+        taxRate: 0.175,
+        tax: 0
+      },
+      {
+        from: 48001,
+        to: 70000,
+        taxRate: 0.30,
+        tax: 0
+      },
+      {
+        from: 70001,
+        to: Infinity,
+        taxRate: 0.33,
+        tax: 0
+      }
+    ],
   }
 };
 
