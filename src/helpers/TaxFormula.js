@@ -6,6 +6,9 @@ const TaxFormula = {
         // choose the value to calculate
         const valueToCalculate = income >= bracket.to ? bracket.to : income;
         taxBrackets[index].tax = (valueToCalculate - bracket.from + 1) * bracket.taxRate;
+        if (income === 0) {
+          taxBrackets[index].tax = 0;
+        }
       } else {
         taxBrackets[index].tax = 0;
       }
