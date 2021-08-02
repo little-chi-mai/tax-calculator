@@ -32,8 +32,8 @@ const TaxBrackets = {
         to: Infinity,
         taxRate: 0.45,
         tax: 0
-      },
-    ], 
+      }
+    ],
     fy20: [
       {
         from: 0,
@@ -64,7 +64,7 @@ const TaxBrackets = {
         to: Infinity,
         taxRate: 0.45,
         tax: 0
-      },
+      }
     ]
   },
   us: {
@@ -110,8 +110,8 @@ const TaxBrackets = {
         to: Infinity,
         taxRate: 0.37,
         tax: 0
-      },
-    ], 
+      }
+    ],
     fy20: [
       {
         from: 0,
@@ -154,10 +154,9 @@ const TaxBrackets = {
         to: Infinity,
         taxRate: 0.37,
         tax: 0
-      },
-    ], 
+      }
+    ]
   }
-  
-}
+};
 
 export default TaxBrackets;
