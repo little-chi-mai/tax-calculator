@@ -64,7 +64,7 @@ export default function CalculatorForm() {
       <div className="form">
         <div className="background background-padding">
           <h1>Tax-calco</h1>
-          <p>The free and simple online tax calculator.</p>
+          <p>A free and simple online tax calculator.</p>
           <div className="planetoid" />
           <div className="moon" />
         </div>
