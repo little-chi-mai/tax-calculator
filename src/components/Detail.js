@@ -6,10 +6,10 @@ export default function TaxBracket(props) {
   return (
     <div className="tax-breakdowns">
       <div className="tax-breakdowns__bracket">
-        <h4>Tax Bracket</h4>
+        <h4>Tax Bracket ({props.taxRate * 100}%)</h4>
         <p>{`${currencyFormatter(props.from)}${
           props.to !== Infinity ? ` - ${currencyFormatter(props.to)}` : '+'
-        }`} (Rate: {props.taxRate * 100}%) </p>
+        }`}</p>
       </div>
       <p className="tax-breakdowns__number">{currencyFormatter(props.tax)}</p>
     </div>
