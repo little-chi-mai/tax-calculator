@@ -9,7 +9,7 @@ export default function TaxBracket(props) {
         <h4>Tax Bracket</h4>
         <p>{`${currencyFormatter(props.from)}${
           props.to !== Infinity ? ` - ${currencyFormatter(props.to)}` : '+'
-        }`} (Tax rate: {props.taxRate * 100}%) </p>
+        }`} (Rate: {props.taxRate * 100}%) </p>
       </div>
       <p className="tax-breakdowns__number">{currencyFormatter(props.tax)}</p>
     </div>
